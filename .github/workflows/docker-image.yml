@@ -17,6 +17,9 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag boringcrawler:latest
+      
+    - name: Set Env Vars
+      run: export DOCKLE_HOST="unix:///var/run/docker.sock"
     
     - name: Container image scan
       uses: Azure/container-scan@v0.1
