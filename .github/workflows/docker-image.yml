@@ -15,15 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3  
 
+    - name: Build and Scan Image
+      uses: ISID/build-and-scan-image@v0.2.0
+      with:
+        tag: boringcrawler:latest
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag boringcrawler:latest
-      
-    - name: Set Env Vars
-      run: export DOCKLE_HOST="unix:///var/run/docker.sock"
-    
-    - name: Container image scan
-      uses: Azure/container-scan@v0.1
-      with:
-       image-name: boringcrawler:latest
-      
-
