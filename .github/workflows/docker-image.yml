@@ -17,6 +17,9 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag boringcrawler:$(date +%s)
+    
+    - name: Install Docker Scan
+      run: apt-get -y update && apt-get -y install docker-scan-plugin
       
     - name: Run Docker Scan
       run: docker scan boringcrawler
