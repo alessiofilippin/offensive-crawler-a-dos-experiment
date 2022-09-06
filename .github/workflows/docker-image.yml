@@ -19,9 +19,9 @@ jobs:
       uses: ISID/build-and-scan-image@v0.2.0
       with:
         tag: boringcrawler:latest
-        trivy-severity: MEDIUM
-        hadolint-severity: warning
-        dockle-severity: WARN
+        trivy-severity: HIGH
+        hadolint-severity: error
+        dockle-severity: FATAL
         
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag boringcrawler:latest
