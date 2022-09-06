@@ -14,5 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Sysdig CIS Dockerfile Benchmark
+      uses: sysdiglabs/benchmark-dockerfile@v1.0.0
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag boringcrawler:$(date +%s)
+      
+
