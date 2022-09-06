@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "crawler": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
