@@ -23,3 +23,9 @@ jobs:
         hadolint-severity: error
         dockle-severity: FATAL
         trivy-ignore-unfixed: true
+
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v3.1.1
+      with:
+        push: true
+        tags: latest
