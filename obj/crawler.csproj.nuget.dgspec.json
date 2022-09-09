@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ale\\Desktop\\K8sProject\\Crawler\\crawler\\crawler.csproj": {}
+    "C:\\Users\\Ale\\Documents\\Source\\personal\\Just-Another-Boring-Crawler\\crawler.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ale\\Desktop\\K8sProject\\Crawler\\crawler\\crawler.csproj": {
+    "C:\\Users\\Ale\\Documents\\Source\\personal\\Just-Another-Boring-Crawler\\crawler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ale\\Desktop\\K8sProject\\Crawler\\crawler\\crawler.csproj",
+        "projectUniqueName": "C:\\Users\\Ale\\Documents\\Source\\personal\\Just-Another-Boring-Crawler\\crawler.csproj",
         "projectName": "crawler",
-        "projectPath": "C:\\Users\\Ale\\Desktop\\K8sProject\\Crawler\\crawler\\crawler.csproj",
+        "projectPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\Just-Another-Boring-Crawler\\crawler.csproj",
         "packagesPath": "C:\\Users\\Ale\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ale\\Desktop\\K8sProject\\Crawler\\crawler\\obj\\",
+        "outputPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\Just-Another-Boring-Crawler\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ale\\AppData\\Roaming\\NuGet\\NuGet.Config",

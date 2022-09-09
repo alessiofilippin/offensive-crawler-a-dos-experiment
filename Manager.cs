@@ -213,10 +213,9 @@ namespace crawler.manager
             })));
 
             bool isFinished = false;
+            Task.Factory.ContinueWhenAll(tasksList.ToArray(), Continue => isFinished = true);
             while (isFinished != true)
             {
-                Task.Factory.ContinueWhenAll(tasksList.ToArray(), Continue => isFinished = true);
-
                 if(isFinished)
                     Console.WriteLine("All Threads Completed.");
             }
