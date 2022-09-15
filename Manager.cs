@@ -195,12 +195,14 @@ namespace crawler.manager
                     i++;
                     long remainTime = (int.Parse(_duration) * 1000) - timer.ElapsedMilliseconds;
                     Console.WriteLine("Thread: " + _thread + " Call Number: " + i + " Remaining milliseconds: " + remainTime);
-                    
+
                     try
                     {
-                        string url = _rootUrl + "?random=" + i + DateTime.Now.Ticks;
-                        Console.WriteLine("try " + url);
-                        client.OpenRead(url);
+                        WebRequest request = httpcreator.HttpCreator.GetWebRequest(_rootUrl);
+                        Console.WriteLine("try " + request.RequestUri);
+                        //response = (HttpWebResponse)request.GetResponse();
+                        //Console.WriteLine(response.StatusDescription);
+                        request.GetResponseAsync();
                     }
                     catch
                     { }
