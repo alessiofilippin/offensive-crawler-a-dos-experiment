@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Cache;
+using System.Net.Http;
 using System.Text;
 
 namespace crawler.manager.httpcreator
@@ -225,10 +226,16 @@ namespace crawler.manager.httpcreator
             return Keywords[index];
         }
 
-        public static WebRequest GetWebRequest(string _url)
+        public static HttpWebRequest GetWebRequest(string _url, string _proxy)
         {
             string queryParam = "?" + GetRandomKeyword() + "=" + DateTime.Now.Ticks + new Random().Next(0, 10000).ToString();
-            WebRequest request = WebRequest.Create(_url + queryParam);
+            HttpWebRequest request = HttpWebRequest.CreateHttp(_url + queryParam);
+
+            if(_proxy != "")
+            {
+                WebProxy myProxy = new WebProxy(_proxy, true);
+                request.Proxy = myProxy;
+            }
 
             request.Method = "GET";
             HttpRequestCachePolicy noCachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);

@@ -58,13 +58,9 @@ namespace crawler.menu
             depth_input = Console.ReadLine();
 
             List<string> keywordsIncludeList = new List<string>();
-            //string[] keys = { "mde", "zip", "marine" };
-            //string[] keys = { "marinedataexchange", "mde" };
-            //string[] keys = { };
             keywordsIncludeList.AddRange(keysInclude);
 
             List<string> keywordsExcludeList = new List<string>();
-            //string[] keysE = { "facebook", "instagram", "twitter", "linkedin", "google", "youtube", "apple" };
             keywordsExcludeList.AddRange(keysExclude);
 
             Crawler spider = new Crawler(rootUrl, int.Parse(depth_input), keywordsIncludeList, keywordsExcludeList);
@@ -103,6 +99,7 @@ namespace crawler.menu
             string rootUrl;
             string threads;
             string duration;
+            string proxy;
 
             Console.WriteLine("Enter URL to call..");
             rootUrl = Console.ReadLine();
@@ -113,7 +110,13 @@ namespace crawler.menu
             Console.WriteLine("Duration in seconds of test, each thread will keep opening the link till the end of the duration..");
             duration = Console.ReadLine();
 
-            Manager.StartBulkCall(rootUrl, threads, duration);
+            Console.WriteLine("Enter the proxy address. Leave blank if not needed");
+            proxy = Console.ReadLine();
+
+            if(proxy == null)
+                Manager.StartBulkCall(rootUrl, threads, duration);
+            else
+                Manager.StartBulkCall(rootUrl, threads, duration, proxy);
 
             Console.WriteLine("-- Press a key to continue --");
             Console.ReadKey();

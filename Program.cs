@@ -23,7 +23,10 @@ namespace crawler
 
                 if (args[0] == "BulkCall")
                 {
-                    Manager.StartBulkCall(args[1], args[2], args[3]);
+                    if(args.Length == 5)
+                        Manager.StartBulkCall(args[1], args[2], args[3], args[4]);
+                    else
+                        Manager.StartBulkCall(args[1], args[2], args[3]);
                 }
 
                 if (args[0] == "help" || args[0] == "/h")

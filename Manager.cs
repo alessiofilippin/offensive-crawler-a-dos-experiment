@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -183,7 +184,7 @@ namespace crawler.manager
             
         }
 
-        private static void CallUrl(string _rootUrl, string _duration, int _thread)
+        private static void CallUrl(string _rootUrl, string _duration, int _thread, string _proxy)
         {
             System.Diagnostics.Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -198,10 +199,22 @@ namespace crawler.manager
 
                     try
                     {
-                        WebRequest request = httpcreator.HttpCreator.GetWebRequest(_rootUrl);
-                        Console.WriteLine("try " + request.RequestUri);
-                        //response = (HttpWebResponse)request.GetResponse();
+                        HttpWebRequest request;
+
+                        if (_proxy != "")
+                            request = httpcreator.HttpCreator.GetWebRequest(_rootUrl, _proxy);
+                        else
+                            request = httpcreator.HttpCreator.GetWebRequest(_rootUrl, "");
+
+                        // ByPass SSL check for Proxy
+                        // Pass the handler to httpclient(from you are calling api)
+                        request.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+                        
+                        //Console.WriteLine("try " + request.RequestUri);
+                        //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                         //Console.WriteLine(response.StatusDescription);
+                        
                         request.GetResponseAsync();
                     }
                     catch
@@ -219,7 +232,7 @@ namespace crawler.manager
             tasksList.Add(Task.Factory.StartNew(() => Parallel.For(0, int.Parse(_threads), (i, state) =>
             {
                 Console.WriteLine("Start task number: " + i);
-                CallUrl(_rootUrl, _duration, i);
+                CallUrl(_rootUrl, _duration, i, "");
             })));
 
             bool isFinished = false;
@@ -230,7 +243,26 @@ namespace crawler.manager
                     Console.WriteLine("All Threads Completed.");
             }
 
-        }        
+        }
+
+        public static void StartBulkCall(string _rootUrl, string _threads, string _duration, string _proxy)
+        {
+            List<Task> tasksList = new List<Task>();
+            tasksList.Add(Task.Factory.StartNew(() => Parallel.For(0, int.Parse(_threads), (i, state) =>
+            {
+                Console.WriteLine("Start task number: " + i);
+                CallUrl(_rootUrl, _duration, i, _proxy);
+            })));
+
+            bool isFinished = false;
+            Task.Factory.ContinueWhenAll(tasksList.ToArray(), Continue => isFinished = true);
+            while (isFinished != true)
+            {
+                if (isFinished)
+                    Console.WriteLine("All Threads Completed.");
+            }
+
+        }
 
         public static void PrintResultsToCSV()
         {
