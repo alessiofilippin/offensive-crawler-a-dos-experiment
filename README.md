@@ -1,4 +1,4 @@
-# Offensive Crawler - A nice try to prepare a DDoS
+# Offensive Crawler - A nice DoS experiment
 
 [![Docker Image CI](https://github.com/alessiofilippin/Just-Another-Boring-Crawler/actions/workflows/docker-image.yml/badge.svg)](https://github.com/alessiofilippin/Just-Another-Boring-Crawler/actions/workflows/docker-image.yml)
 
