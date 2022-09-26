@@ -44,7 +44,7 @@ This can be helpfull in finding those URLs which they take more time to load for
 Sometimes files are available for open download. You could take advantage of this by downloading the same file multiple times and try to saturate the target bandwith.
 This command is very simple as it just starts multiple threads in parallel and attempt to download the same file multiple times.
 
-This is probably an old fashion attack as majority of the systems will probably be protected against this.d
+This is probably an old fashion attack as majority of the systems will probably be protected against this.
 
 The files will be downloaded in the .exe directory and named with a progressive number.
 
@@ -71,6 +71,6 @@ This will make harder for the target system to identify a pattern in the request
 
 **SHELL**
 
-> /path/to/exe/crawler.exe BulkCall https://url-to-download.com [Number_of_threads] [Duration]
+> /path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration]
 
-> /path/to/exe/crawler.exe BulkCall https://url-to-download.com [Number_of_threads] [Duration] http://proxy-url.com
+> /path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration] http://proxy-url.com
