@@ -33,7 +33,11 @@ For each one of the URLs founds - the tool will try to calculate the loading tim
 
 This can be helpfull in finding those URLs which they take more time to load for the target website, these URLs could be good candidates for a DoS attack.
 
-[PLACE EXAMPLE OF USAGE PICTURE]
+![image](https://user-images.githubusercontent.com/47082128/192241313-ce73e536-2f0f-49ae-be7f-b1d317dbd7c2.png)
+
+**Result:**
+
+![image](https://user-images.githubusercontent.com/47082128/192243717-4449289e-f8e7-4055-9e53-503dbf577589.png)
 
 ## Bulk Download
 
@@ -44,7 +48,13 @@ This is probably an old fashion attack as majority of the systems will probably 
 
 The files will be downloaded in the .exe directory and named with a progressive number.
 
-[PLACE EXAMPLE OF USAGE PICTURE]
+**INTERACTIVE**
+
+![image](https://user-images.githubusercontent.com/47082128/192243931-5918fee9-bb25-4cd1-b579-431eece33286.png)
+
+**SHELL**
+
+> /path/to/exe/crawler.exe BulkDownload https://url-to-download.com [Number_of_threads]
 
 ## Bulk Call
 
@@ -55,4 +65,12 @@ This will make harder for the target system to identify a pattern in the request
 
 > Check how I have done that by using AKS, Azure and Squid. here [Link to Azure AKS DDoS Project](LINK)
 
-[PLACE EXAMPLE OF USAGE PICTURE]
+**INTERACTIVE**
+
+![image](https://user-images.githubusercontent.com/47082128/192244057-c97adc0a-382c-4bba-9bd8-36d2eda8e1c8.png)
+
+**SHELL**
+
+> /path/to/exe/crawler.exe BulkCall https://url-to-download.com [Number_of_threads] [Duration]
+
+> /path/to/exe/crawler.exe BulkCall https://url-to-download.com [Number_of_threads] [Duration] http://proxy-url.com
