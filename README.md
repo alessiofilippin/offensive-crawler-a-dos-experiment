@@ -2,7 +2,7 @@
 
 [![Docker Image CI](https://github.com/alessiofilippin/Just-Another-Boring-Crawler/actions/workflows/docker-image.yml/badge.svg)](https://github.com/alessiofilippin/Just-Another-Boring-Crawler/actions/workflows/docker-image.yml)
 
-This Repo contains a small Console App made in C#. I will illustrate the usage of the App in this readme. But if you want to check how I used it to simulate a DDoS in my experiment check this other repo -> [Link to Azure AKS DDoS Project](LINK)
+This Repo contains a small Console App made in C#. I will illustrate the usage of the App in this readme. But if you want to check how I used it to simulate a DDoS in my experiment check this other repo -> [Link to Azure AKS DDoS Project](https://github.com/alessiofilippin/aks-ddos-experiment)
 
 A Docker Image is also published on the DockerHub, it could be used to execute the App in CLI mode. [Link to DockerHub](https://hub.docker.com/repository/docker/alessiofilippin/just-another-boring-crawler-cli)
 
@@ -63,7 +63,7 @@ Each thread will try to make the request unique as possible by manipulating the 
 
 This will make harder for the target system to identify a pattern in the requests - you can also add a proxy (which it's supported by the command), if you want to change the IP or mask your connection.
 
-> Check how I have done that by using AKS, Azure and Squid. here [Link to Azure AKS DDoS Project](LINK)
+> Check how I have done that by using AKS, Azure and Squid. here [Link to Azure AKS DDoS Project](https://github.com/alessiofilippin/aks-ddos-experiment)
 
 **INTERACTIVE**
 
