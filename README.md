@@ -28,10 +28,12 @@ The App supports the following actions:
 
 ## Scrape Root Url
 
-This command will scrape a URL starting from a root URL. It will be possible to include/exclude certain keyworkds and specify a depth.
+This command will scrape a URL starting from a root URL. It will be possible to include/exclude certain keywords and specify the depth for the scan.
 For each one of the URLs founds - the tool will try to calculate the loading time of the page and get some DNS informations.
 
 This can be helpfull in finding those URLs which they take more time to load for the target website, these URLs could be good candidates for a DoS attack.
+
+> I suggest you to try to execute multiple runs for the same website in such a way to get a mean value as results in latency might be affected by several factors. (like caching or network bandwith).
 
 ![image](https://user-images.githubusercontent.com/47082128/192241313-ce73e536-2f0f-49ae-be7f-b1d317dbd7c2.png)
 
@@ -42,9 +44,9 @@ This can be helpfull in finding those URLs which they take more time to load for
 ## Bulk Download
 
 Sometimes files are available for open download. You could take advantage of this by downloading the same file multiple times and try to saturate the target bandwith.
-This command is very simple as it just starts multiple threads in parallel and attempt to download the same file multiple times.
+This command is very simple as it just starts multiple threads in parallel and attempts to download the same file multiple times.
 
-This is probably an old fashion attack as majority of the systems will probably be protected against this.
+This is probably an old fashioned attack as majority of the systems will probably be protected against this.
 
 The files will be downloaded in the .exe directory and named with a progressive number.
 
@@ -54,14 +56,15 @@ The files will be downloaded in the .exe directory and named with a progressive 
 
 **SHELL**
 
-> /path/to/exe/crawler.exe BulkDownload https://url-to-download.com [Number_of_threads]
+``/path/to/exe/crawler.exe BulkDownload https://url-to-download.com [Number_of_threads]``
 
 ## Bulk Call
 
 This is a useful command to perform a DoS attack. This command will create multiple threads which they will send GET request to the target.
-Each thread will try to make the request unique as possible by manipulating the following headers/parameters: UserAgent, Referers, QueryParameter, Keep-Alive.
+Each thread will try to make the requests unique as possible by manipulating the following headers/parameters: UserAgent, Referers, QueryParameter, Keep-Alive.
 
-This will make harder for the target system to identify a pattern in the requests - you can also add a proxy (which it's supported by the command), if you want to change the IP or mask your connection.
+This will make harder for the target system to identify a pattern in the requests. 
+> you can also add a proxy (which it's supported by the command), if you want to change the IP or mask your connection.
 
 > Check how I have done that by using AKS, Azure and Squid. here [Link to Azure AKS DDoS Project](https://github.com/alessiofilippin/aks-ddos-experiment)
 
@@ -71,6 +74,6 @@ This will make harder for the target system to identify a pattern in the request
 
 **SHELL**
 
-> /path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration]
+``/path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration]``
 
-> /path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration] http://proxy-url.com
+``/path/to/exe/crawler.exe BulkCall https://url-to-call.com [Number_of_threads] [Duration] http://proxy-url.com``
