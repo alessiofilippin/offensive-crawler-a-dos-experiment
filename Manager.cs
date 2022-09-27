@@ -202,7 +202,7 @@ namespace crawler.manager
                         HttpWebRequest request;
 
                         if (_proxy != "")
-                            request = httpcreator.HttpCreator.GetWebRequest(_rootUrl, _proxy);
+                        { request = httpcreator.HttpCreator.GetWebRequest(_rootUrl, _proxy); Console.WriteLine("PROXY YES!"); }
                         else
                             request = httpcreator.HttpCreator.GetWebRequest(_rootUrl, "");
 
